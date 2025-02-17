@@ -2,16 +2,15 @@ FROM node:latest
 
 WORKDIR /app
 
-COPY package.json ./
-COPY package-lock.json ./
+# Install dependencies
+COPY package.json package-lock.json ./
 RUN npm install
 
+# Copy the source code and build the frontend
 COPY . .
-
 RUN npm run build
 
-# install serve to serve the static files
+# Use serve to serve the static files
 RUN npm install -g serve
-
-CMD ["serve", "-s", "build", "-l", "3000"]
 EXPOSE 3000
+CMD ["serve", "-s", "dist", "-l", "3000"]

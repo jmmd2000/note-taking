@@ -1,14 +1,12 @@
-FROM node:latest
+FROM node:16-alpine
 
 WORKDIR /app
 
-COPY package.json ./
-COPY package-lock.json ./
-RUN npm install
+COPY package.json package-lock.json ./
+RUN npm install --only=production
 
 COPY . .
+RUN npm run build
 
-# app binds to port 4000 so use EXPOSE to have it mapped by the docker daemon
 EXPOSE 4000
-
-CMD ["node", "index.js"]
+CMD ["node", "dist/src/index.js"]

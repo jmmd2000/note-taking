@@ -1,22 +1,15 @@
-// src/index.js or src/App.js
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
 export interface Sample {
   message: string;
 }
 
-const queryClient = new QueryClient();
-
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <div className="App">
-        <header className="App-header">
-          <h1>React Query Example</h1>
-          <SampleComponent />
-        </header>
-      </div>
-    </QueryClientProvider>
+    <div className="App">
+      <header className="App-header">
+        <h1>React Query Example</h1>
+        <SampleComponent />
+      </header>
+    </div>
   );
 }
 
