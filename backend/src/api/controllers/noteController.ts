@@ -30,3 +30,19 @@ export const getNoteByID = async (req: Request, res: Response) => {
     }
   }
 };
+
+export const createNote = async (req: Request, res: Response) => {
+  console.log("Received POST request!!!:", req.body);
+  try {
+    const note = await NoteService.createNote(req.body);
+    res.status(201).json(note);
+  } catch (error) {
+    if (error instanceof Error) {
+      res.status(500).json({ message: error.message });
+      console.error(error);
+    } else {
+      res.status(500).json({ message: "An unknown error occurred" });
+      console.error(error);
+    }
+  }
+};

@@ -62,13 +62,34 @@ function RouteComponent() {
     return <div>No data</div>;
   }
 
+  const handleSubmit = async () => {
+    const response = await fetch(`${API_BASE_URL}/api/notes`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ title: "New note", content: "This is a new note", dateCreated: new Date(), dateModified: new Date() }),
+    });
+
+    if (!response.ok) {
+      console.error("Failed to submit note:", response.statusText);
+    } else {
+      console.log("Note submitted successfully");
+    }
+
+    console.log(response);
+  };
+
   console.log(data);
 
   return (
-    <div>
-      {data.map((note: INote) => (
-        <div key={note.id}>{note.title}</div>
-      ))}
-    </div>
+    <>
+      <div>
+        {data.map((note: INote) => (
+          <div key={note.id}>{note.title}</div>
+        ))}
+      </div>
+      <button onClick={handleSubmit}>Submit new note</button>
+    </>
   );
 }
