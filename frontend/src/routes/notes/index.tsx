@@ -4,7 +4,8 @@ import { queryClient } from "../../main";
 import { ErrorComponentProps } from "@tanstack/react-router";
 import { useEffect } from "react";
 const API_BASE_URL = import.meta.env.VITE_API_URL;
-import type { INote } from "@backend-types";
+import type { INote } from "@backend/types";
+import NoteCard from "@components/NoteCard";
 
 async function fetchNotes(): Promise<INote[]> {
   const response = await fetch(`${API_BASE_URL}/api/notes`);
@@ -48,9 +49,9 @@ export const Route = createFileRoute("/notes/")({
 });
 
 function RouteComponent() {
-  const { data, error, isLoading } = useQuery({ queryKey: ["notes"], queryFn: fetchNotes });
+  const { data, error, isPending } = useQuery({ queryKey: ["notes"], queryFn: fetchNotes });
 
-  if (isLoading) {
+  if (isPending) {
     return <div>Loading...</div>;
   }
 
@@ -86,7 +87,7 @@ function RouteComponent() {
     <>
       <div>
         {data.map((note: INote) => (
-          <div key={note.id}>{note.title}</div>
+          <NoteCard key={note.id} note={note} />
         ))}
       </div>
       <button onClick={handleSubmit}>Submit new note</button>

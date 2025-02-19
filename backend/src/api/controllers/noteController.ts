@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import { NoteService } from "../services/noteService";
 
-export const getNotes = async (req: Request, res: Response) => {
+export const getNotes = async (_req: Request, res: Response) => {
   try {
     const notes = await NoteService.getNotes();
     res.status(200).json(notes);

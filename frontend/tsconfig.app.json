@@ -8,7 +8,8 @@
     "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@backend-types": ["../backend/types"]
+      "@backend/*": ["../backend/*"],
+      "@components/*": ["src/components/*"]
     },
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
