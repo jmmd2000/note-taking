@@ -1,5 +1,6 @@
 import { INote } from "@backend/types";
 import "./NoteCard.css";
+import { Link } from "@tanstack/react-router";
 
 interface NoteCardProps {
   note: INote;
@@ -7,11 +8,14 @@ interface NoteCardProps {
 
 const NoteCard = (props: NoteCardProps) => {
   const { note } = props;
+  const urlPath = `/notes/${note.id.toString()}`;
   return (
-    <div className="note-card">
-      <h3>{note.title}</h3>
-      <p>{note.content}</p>
-    </div>
+    <Link to={urlPath}>
+      <div className="note-card">
+        <h3>{note.title}</h3>
+        <p>{note.content}</p>
+      </div>
+    </Link>
   );
 };
 

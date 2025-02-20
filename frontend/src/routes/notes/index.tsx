@@ -5,7 +5,7 @@ import { ErrorComponentProps } from "@tanstack/react-router";
 import { useEffect } from "react";
 const API_BASE_URL = import.meta.env.VITE_API_URL;
 import type { INote } from "@backend/types";
-import NoteCard from "@components/NoteCard";
+import NoteCardGrid from "@components/NoteCardGrid";
 
 async function fetchNotes(): Promise<INote[]> {
   const response = await fetch(`${API_BASE_URL}/api/notes`);
@@ -85,11 +85,7 @@ function RouteComponent() {
 
   return (
     <>
-      <div>
-        {data.map((note: INote) => (
-          <NoteCard key={note.id} note={note} />
-        ))}
-      </div>
+      <NoteCardGrid notes={data} />
       <button onClick={handleSubmit}>Submit new note</button>
     </>
   );
