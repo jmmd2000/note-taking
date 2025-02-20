@@ -4,7 +4,7 @@ import { queryClient } from "../../main";
 import { ErrorComponentProps } from "@tanstack/react-router";
 import { useEffect } from "react";
 const API_BASE_URL = import.meta.env.VITE_API_URL;
-import type { INote } from "@backend/types";
+import type { INote } from "../../../types";
 import NoteCardGrid from "@components/NoteCardGrid";
 
 async function fetchNotes(): Promise<INote[]> {

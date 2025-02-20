@@ -1,4 +1,4 @@
-import { INote } from "@backend/types";
+import { INote } from "../../types";
 import NoteCard from "@components/NoteCard";
 import "./NoteCardGrid.css";
 

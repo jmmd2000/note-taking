@@ -1,4 +1,4 @@
-import { INote } from "@backend/types";
+import { INote } from "../../types";
 import "./NoteCard.css";
 import { Link } from "@tanstack/react-router";
 
