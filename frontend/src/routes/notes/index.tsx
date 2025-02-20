@@ -86,7 +86,9 @@ function RouteComponent() {
   return (
     <>
       <NoteCardGrid notes={data} />
-      <button onClick={handleSubmit}>Submit new note</button>
+      <button data-test="submit-button" onClick={handleSubmit}>
+        Submit new note
+      </button>
     </>
   );
 }

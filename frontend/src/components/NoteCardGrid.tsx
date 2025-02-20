@@ -9,7 +9,7 @@ interface NoteCardGridProps {
 const NoteCardGrid = (props: NoteCardGridProps) => {
   const { notes } = props;
   return (
-    <div className="note-card-grid">
+    <div className="note-card-grid" data-testid="note-card-grid">
       {notes.map((note) => (
         <NoteCard key={note.id} note={note} />
       ))}

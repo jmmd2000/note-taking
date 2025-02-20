@@ -10,7 +10,7 @@ const NoteCard = (props: NoteCardProps) => {
   const { note } = props;
   const urlPath = `/notes/${note.id.toString()}`;
   return (
-    <Link to={urlPath}>
+    <Link to={urlPath} data-testid="note-card">
       <div className="note-card">
         <h3>{note.title}</h3>
         <p>{note.content}</p>
