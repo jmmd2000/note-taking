@@ -1,4 +1,5 @@
 import cors from "cors";
+import dotenv from "dotenv";
 import express from "express";
 import noteRoutes from "./api/routes/noteRoutes";
 
@@ -43,8 +44,11 @@ import noteRoutes from "./api/routes/noteRoutes";
 
 export const app = express();
 
+dotenv.config(); // ✅ Load environment variables
+
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: process.env.CLIENT_ORIGIN || "http://localhost:5173", // allow dynamic frontend origin
+  credentials: true, // allow cookies and authentication
 };
 
 app.use(cors(corsOptions));
