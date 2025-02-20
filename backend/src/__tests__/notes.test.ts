@@ -1,7 +1,7 @@
 import request from "supertest";
 import { app } from "../index";
-import { query } from "../../db"; // ✅ Keep using the same DB connection
-import { beforeEach, afterAll, test, expect } from "@jest/globals";
+// import { query } from "../../db"; // ✅ Keep using the same DB connection
+import { test, expect } from "@jest/globals";
 
 // beforeEach(async () => {
 //   await query("DELETE FROM notes;"); // ✅ Clear notes before each test

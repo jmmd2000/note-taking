@@ -13,7 +13,7 @@ services:
       - ./backend/src:/app/src # mount only the source code for live reload
       - ./backend/package.json:/app/package.json # keep package.json updated
     environment:
-      DATABASE_URL: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
+      DATABASE_URL_DEV: postgresql://${POSTGRES_USER}:${POSTGRES_PASSWORD}@db:5432/${POSTGRES_DB}
     ports:
       - "4000:4000"
     command: npm run dev # use nodemon for live reload
