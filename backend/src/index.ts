@@ -47,7 +47,8 @@ export const app = express();
 dotenv.config(); // ✅ Load environment variables
 
 const corsOptions = {
-  origin: process.env.CLIENT_ORIGIN || "http://localhost:5173", // allow dynamic frontend origin
+  // origin: process.env.CLIENT_ORIGIN || "http://localhost:5173", // allow dynamic frontend origin
+  origin: ["http://localhost:8080", "http://localhost:5173"], // allow dynamic frontend origin
   credentials: true, // allow cookies and authentication
 };
 

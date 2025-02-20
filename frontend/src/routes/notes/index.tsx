@@ -8,7 +8,7 @@ import type { INote } from "../../../types";
 import NoteCardGrid from "@components/NoteCardGrid";
 
 async function fetchNotes(): Promise<INote[]> {
-  const response = await fetch(`${API_BASE_URL}/api/notes`);
+  const response = await fetch(`http://localhost:4000/api/notes`);
   console.log({ response });
   return await response.json();
 }
