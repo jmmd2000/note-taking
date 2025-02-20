@@ -41,7 +41,7 @@ import noteRoutes from "./api/routes/noteRoutes";
 // }
 // main();
 
-const app = express();
+export const app = express();
 
 const corsOptions = {
   origin: "http://localhost:5173",

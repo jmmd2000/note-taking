@@ -31,8 +31,8 @@ export class Note {
         .values({
           title: note.title,
           content: note.content,
-          dateCreated: new Date(note.dateCreated),
-          dateModified: new Date(note.dateModified),
+          dateCreated: new Date(),
+          dateModified: new Date(),
         })
         .returning()
     )[0];
